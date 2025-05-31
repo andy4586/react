@@ -4,7 +4,6 @@ function customeRender(reactElement, container) {
     domElement.setAttribute('href', reactElement.props.href);
     domElement.setAttribute('target', reactElement.props.target);
     container.appendChild(domElement);
-    console.log(domElement);
 }
 const reactElement = {
     type: 'a',
