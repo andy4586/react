@@ -3,15 +3,10 @@ function customeRender(reactElement, container) {
     if (typeof reactElement.children === 'string') {
         domElement.innerText = reactElement.children;
     }
-    if (reactElement.props) {
-        if (reactElement.props.href) {
-            domElement.setAttribute('href', reactElement.props.href);
-        }
-        if (reactElement.props.target) {
-            domElement.setAttribute('target', reactElement.props.target);
-        }
+    for (const prop in props) {
+        if (prop == children) continue;
+        domElement.setAttribute(prop, reactElement.props[prop]);
     }
-    container.appendChild(domElement);
 }
 const reactElement = {
     type: 'a',
