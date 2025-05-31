@@ -3,10 +3,11 @@ function customeRender(reactElement, container) {
     if (typeof reactElement.children === 'string') {
         domElement.innerText = reactElement.children;
     }
-    for (const prop in props) {
-        if (prop == children) continue;
+    for (const prop in reactElement.props) {
+        if (prop == 'children') continue;
         domElement.setAttribute(prop, reactElement.props[prop]);
     }
+    container.appendChild(domElement);
 }
 const reactElement = {
     type: 'a',
